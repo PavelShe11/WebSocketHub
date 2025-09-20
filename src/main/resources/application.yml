@@ -1,0 +1,34 @@
+spring:
+  web:
+    resources:
+      add-mappings: false
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - debug
+          - env
+
+server:
+  port: ${}
+
+jwt:
+  access-token:
+    lifetime: ${ACCESS_TOKEN_LIFETIME}
+  refresh-token:
+    lifetime: ${REFRESH_TOKEN_LIFETIME}
+  secret: ${JWT_SECRET}
+
+logging:
+  level:
+    org:
+      springframework:
+        security=DEBUG:
+        validation=DEBUG:
